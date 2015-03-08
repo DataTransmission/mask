@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,56 +17,121 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Advertisements" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUr-7m-g8D">
-                                <rect key="frame" x="16" y="33" width="143" height="28"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J87-FP-pdX">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="J87-FP-pdX" secondAttribute="height" multiplier="14:25" id="HVN-qT-2ev"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HVN-qT-2ev"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="27" y="32" width="346" height="620"/>
+                                    <mask key="constraints">
+                                        <include reference="HVN-qT-2ev"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-p8-oTE">
+                                <rect key="frame" x="-19" y="-18" width="39" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="sW0-Zd-Sxe"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sW0-Zd-Sxe"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="sW0-Zd-Sxe"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="changePage:" destination="vXZ-lx-hvc" eventType="valueChanged" id="BN2-9L-Hxg"/>
+                                </connections>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In the Settings app, tap &quot;General&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-ow-99v">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XHP-ow-99v" secondAttribute="height" multiplier="140:25" id="Tar-Au-oe6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Tar-Au-oe6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Tar-Au-oe6"/>
+                                    </mask>
+                                </variation>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-dZ-fCx">
-                                <rect key="frame" x="535" y="28" width="51" height="31"/>
-                                <connections>
-                                    <action selector="switchChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="hZG-Bd-zca"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZUr-7m-g8D" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="11" id="7A1-EW-CMI">
-                                <variation key="heightClass=regular-widthClass=compact" constant="24"/>
-                            </constraint>
-                            <constraint firstItem="4ET-dZ-fCx" firstAttribute="centerY" secondItem="ZUr-7m-g8D" secondAttribute="centerY" id="7cb-qW-f69"/>
-                            <constraint firstAttribute="trailing" secondItem="4ET-dZ-fCx" secondAttribute="trailing" constant="43" id="VOM-hF-Q7O">
-                                <variation key="heightClass=regular-widthClass=compact" constant="42"/>
-                            </constraint>
-                            <constraint firstItem="ZUr-7m-g8D" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="33" id="uW6-ig-MvH">
-                                <variation key="heightClass=regular-widthClass=compact" constant="42"/>
-                            </constraint>
+                            <constraint firstItem="zSF-p8-oTE" firstAttribute="top" secondItem="J87-FP-pdX" secondAttribute="bottom" constant="8" id="3IE-b6-2oZ"/>
+                            <constraint firstItem="XHP-ow-99v" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="32" id="ELz-vE-Cfw"/>
+                            <constraint firstAttribute="trailing" secondItem="zSF-p8-oTE" secondAttribute="trailing" constant="32" id="Eg8-bC-Yfd"/>
+                            <constraint firstItem="J87-FP-pdX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="32" id="JkL-tZ-gUf"/>
+                            <constraint firstItem="zSF-p8-oTE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="32" id="VYc-uj-tDF"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="XHP-ow-99v" secondAttribute="bottom" constant="32" id="Zlx-bI-nEZ"/>
+                            <constraint firstAttribute="centerX" secondItem="J87-FP-pdX" secondAttribute="centerX" id="dlW-GK-gTU"/>
+                            <constraint firstAttribute="trailing" secondItem="XHP-ow-99v" secondAttribute="trailing" constant="32" id="jkZ-9Q-tzG"/>
+                            <constraint firstItem="XHP-ow-99v" firstAttribute="top" secondItem="zSF-p8-oTE" secondAttribute="bottom" constant="16" id="v52-sl-DwD"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="J87-FP-pdX"/>
+                                <exclude reference="zSF-p8-oTE"/>
+                                <exclude reference="XHP-ow-99v"/>
+                            </mask>
                             <mask key="constraints">
-                                <exclude reference="7A1-EW-CMI"/>
-                                <exclude reference="uW6-ig-MvH"/>
-                                <exclude reference="7cb-qW-f69"/>
-                                <exclude reference="VOM-hF-Q7O"/>
+                                <exclude reference="JkL-tZ-gUf"/>
+                                <exclude reference="dlW-GK-gTU"/>
+                                <exclude reference="3IE-b6-2oZ"/>
+                                <exclude reference="Eg8-bC-Yfd"/>
+                                <exclude reference="VYc-uj-tDF"/>
+                                <exclude reference="ELz-vE-Cfw"/>
+                                <exclude reference="jkZ-9Q-tzG"/>
+                                <exclude reference="v52-sl-DwD"/>
+                                <exclude reference="Zlx-bI-nEZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="J87-FP-pdX"/>
+                                <include reference="zSF-p8-oTE"/>
+                                <include reference="XHP-ow-99v"/>
+                            </mask>
                             <mask key="constraints">
-                                <include reference="7A1-EW-CMI"/>
-                                <include reference="uW6-ig-MvH"/>
-                                <include reference="7cb-qW-f69"/>
-                                <include reference="VOM-hF-Q7O"/>
+                                <include reference="JkL-tZ-gUf"/>
+                                <include reference="dlW-GK-gTU"/>
+                                <include reference="3IE-b6-2oZ"/>
+                                <include reference="Eg8-bC-Yfd"/>
+                                <include reference="VYc-uj-tDF"/>
+                                <include reference="ELz-vE-Cfw"/>
+                                <include reference="jkZ-9Q-tzG"/>
+                                <include reference="v52-sl-DwD"/>
+                                <include reference="Zlx-bI-nEZ"/>
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="advertisementSwitch" destination="4ET-dZ-fCx" id="MX9-3F-mtv"/>
+                        <outlet property="instructions" destination="XHP-ow-99v" id="nMK-Hv-8SB"/>
+                        <outlet property="pageControl" destination="zSF-p8-oTE" id="Oc4-S9-qxg"/>
+                        <outlet property="scrollView" destination="J87-FP-pdX" id="WI9-8G-T9H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="391"/>
+            <point key="canvasLocation" x="453" y="390.75"/>
         </scene>
     </scenes>
 </document>
